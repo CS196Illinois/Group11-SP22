@@ -1,9 +1,8 @@
 from tkinter import * 
 
-from matplotlib import pyplot as plt
 
 
-class MyFirstGUI:
+'''class MyFirstGUI:
     def __init__(self, master):
         self.master = master
         master.title("A simple GUI")
@@ -24,6 +23,7 @@ class MyFirstGUI:
         print("Greetings!")
     def Zoey(self):
         print("Hello from Zoey")
+        '''
 
 class UserInterface:
     def __init__(self, master):
@@ -41,11 +41,6 @@ class UserInterface:
        # self.showRawGrade_label.pack()
 
     
-
-
-
-
-
 
 
 root = Tk()
