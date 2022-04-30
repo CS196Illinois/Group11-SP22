@@ -5,9 +5,6 @@ import math
 from scipy import stats
 import matplotlib.pyplot as plt
 
-student = np.array(['John','Sandy','Coco','Snute','Noel','Monsoon','Eric','Allen','Michelle','Cathy'])
-score = np.array([76.,96.,88.,26.,84.,79.,83,90.,90.,60.], dtype='f')
-df_test = pd.DataFrame({'Name': student, 'Score' : score})
 
 def sqrtCurver(df, median):
     dm = df['Score'].median()
@@ -70,17 +67,21 @@ def normalCurver(df, median):
 # axes[1].set_xlim([0, 120])
 # plt.show()
 
-student_l = np.arange(0, 100 ,1)
-score_l = np.random.randint(0, 100, size=100)
-df_large = pd.DataFrame({'Name': student_l, 'Score' : score_l})
-dfl_final = normalCurver(df_large.copy(), 90)
-# dfl_final = GuzmanCurver(df_large.copy(), 90)
-print(df_large.to_string())
-print(dfl_final.to_string())
-fig, axes = plt.subplots(nrows=1, ncols=2)
-axes[0].hist(df_large['Score'], bins=20)
-axes[1].hist(dfl_final['Score'], bins=20)
-axes[0].set_xlim([0, 120])
-axes[1].set_xlim([0, 120])
-plt.show()
+# student = np.array(['John','Sandy','Coco','Snute','Noel','Monsoon','Eric','Allen','Michelle','Cathy'])
+# score = np.array([76.,96.,88.,26.,84.,79.,83,90.,90.,60.], dtype='f')
+# df_test = pd.DataFrame({'Name': student, 'Score' : score})
+
+# student_l = np.arange(0, 100 ,1)
+# score_l = np.random.randint(0, 100, size=100)
+# df_large = pd.DataFrame({'Name': student_l, 'Score' : score_l})
+# dfl_final = normalCurver(df_large.copy(), 90)
+# # dfl_final = GuzmanCurver(df_large.copy(), 90)
+# print(df_large.to_string())
+# print(dfl_final.to_string())
+# fig, axes = plt.subplots(nrows=1, ncols=2)
+# axes[0].hist(df_large['Score'], bins=20)
+# axes[1].hist(dfl_final['Score'], bins=20)
+# axes[0].set_xlim([0, 120])
+# axes[1].set_xlim([0, 120])
+# plt.show()
 

@@ -19,6 +19,8 @@ import math
 from scipy import stats
 import matplotlib.pyplot as plt
 
+from Backend import *
+
 filename = ''
 
 def UploadAction(event=None):
