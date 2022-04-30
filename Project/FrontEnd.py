@@ -37,9 +37,7 @@ class UserInterface:
         self.entry = Entry(master, text= "test entry", fg = "lime", bg="black", width=24,)
         self.entry.pack()
 
-       # self.showRawGrade_label = Label(master, text = self.enterGrade_label.get())
-       # self.showRawGrade_label.pack()
-
+      
     
 
 
