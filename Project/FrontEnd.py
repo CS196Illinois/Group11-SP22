@@ -27,25 +27,92 @@ class UserInterface:
         self.enterGrade_label = Label(master, text = "Select the type of curve")
         self.enterGrade_label.pack()
 
-        self.check_button = Checkbutton(master, text="sqrtCurver")
+        self.varOne = IntVar(master)
+        self.check_button = tk.Checkbutton(master, text="sqrtCurver", variable=self.varOne)
         self.check_button.pack()
 
-        self.check2_button = Checkbutton(master, text="linearCurver")
+        self.varTwo = IntVar(master)
+        self.check2_button = tk.Checkbutton(master, text="linearCurver", variable=self.varTwo)
         self.check2_button.pack()
 
-        self.check3_button = Checkbutton(master, text="GuzmanCurver")
+        self.varThree = IntVar(master)
+        self.check3_button = tk.Checkbutton(master, text="GuzmanCurver", variable=self.varThree)
         self.check3_button.pack()
 
-        self.check4_button = Checkbutton(master, text="normalCurver")
+        self.varFour = IntVar(master)
+        self.check4_button = tk.Checkbutton(master, text="normalCurver", variable=self.varFour)
         self.check4_button.pack()
 
-    filename = ''
-    def UploadAction(self):
-        filename = filedialog.askopenfilename()
+        self.button = tk.Button(master, text='Run', command=self.RunAction)
+        self.button.pack()
 
-        df = pd.read_csv(filename)
-        print('Selected:', type(filename))
-        print(df)
+        self.filename = ''
+
+    
+    def UploadAction(self):
+        self.filename = filedialog.askopenfilename()
+
+    def RunAction(self):
+        raw_df = pd.read_csv(self.filename)
+        header = ['Name', 'Score']
+
+        if self.varOne.get() == 1:
+            curved_df = sqrtCurver(raw_df, 70)
+            data = []
+
+            for i in range(len(curved_df['Name'])):
+                data.append([curved_df['Name'][i], curved_df['Score'][i]])
+
+            with open('./sqrtCurve.csv', 'w', encoding='UTF8', newline='') as f:
+                # create the csv writer
+                writer = csv.writer(f)
+                
+                writer.writerow(header)
+                writer.writerows(data)
+
+        if self.varTwo.get() == 1:
+            curved_df = linearCurver(raw_df, 100, 40)
+            data = []
+
+            for i in range(len(curved_df['Name'])):
+                data.append([curved_df['Name'][i], curved_df['Score'][i]])
+
+            with open('./linearCurve.csv', 'w', encoding='UTF8', newline='') as f:
+                # create the csv writer
+                writer = csv.writer(f)
+                
+                writer.writerow(header)
+                writer.writerows(data)
+
+        if self.varThree.get() == 1:
+            curved_df = GuzmanCurver(raw_df, 90)
+            data = []
+
+            for i in range(len(curved_df['Name'])):
+                data.append([curved_df['Name'][i], curved_df['Score'][i]])
+
+            with open('./guzmanCurve.csv', 'w', encoding='UTF8', newline='') as f:
+                # create the csv writer
+                writer = csv.writer(f)
+                
+                writer.writerow(header)
+                writer.writerows(data)
+
+        if self.normalCurver.get() == 1:
+            curved_df = sqrtCurver(raw_df, 90)
+            data = []
+
+            for i in range(len(curved_df['Name'])):
+                data.append([curved_df['Name'][i], curved_df['Score'][i]])
+
+            with open('./normalCurve.csv', 'w', encoding='UTF8', newline='') as f:
+                # create the csv writer
+                writer = csv.writer(f)
+                
+                writer.writerow(header)
+                writer.writerows(data)
+
+
     
     def sel():
         selection = "You selected the option"
