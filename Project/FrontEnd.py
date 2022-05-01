@@ -98,8 +98,8 @@ class UserInterface:
                 writer.writerow(header)
                 writer.writerows(data)
 
-        if self.normalCurver.get() == 1:
-            curved_df = sqrtCurver(raw_df, 90)
+        if self.varFour.get() == 1:
+            curved_df = normalCurver(raw_df, 90)
             data = []
 
             for i in range(len(curved_df['Name'])):
