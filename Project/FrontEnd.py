@@ -11,30 +11,6 @@ from tkinter import *
 from Backend import *
 import csv
 
-
-
-class MyFirstGUI:
-    def __init__(self, master):
-        self.master = master
-        master.title("A simple GUI")
-
-        self.label = Label(master, text="This is our first GUI!")
-        self.label.pack()
-
-        self.greet_button = Button(master, text="Greet", command=self.greet)
-        self.greet_button.pack()
-
-        self.close_button = Button(master, text="Close", command=master.quit)
-        self.close_button.pack()
-        
-        self.test_button = Button(master, text = "Test Zoey", command = self.Zoey)
-        self.test_button.pack()
-
-    def greet(self):
-        print("Greetings!")
-    def Zoey(self):
-        print("Hello from Zoey")
-
   
 class UserInterface:
     
@@ -68,17 +44,6 @@ class UserInterface:
 
     
 
-
-
-
- 
-
-
-
-
-
-
-
     filename = ''
     def UploadAction(self):
         filename = filedialog.askopenfilename()
@@ -87,11 +52,6 @@ class UserInterface:
         print('Selected:', type(filename))
         print(df)
     
-    def sel():
-        selection = "You selected the option"
-
-
-  
 
 
 root = tk.Tk()
